@@ -3,7 +3,7 @@ Feature: User Registration
   I want to sign up to childs keeper
   So I can explore it's awesomeness!
 
-  Scenario: Visiting the
+  Scenario Outline: Visiting the
     Given I am on the child keeper site
     When I click the Join Today Link
     And I register a new account as a "<gender>" owner between the ages of "<range>"
