@@ -1,30 +1,8 @@
 require 'rubygems'
 require 'watir-webdriver'
-
-if @browser.nil?
-  @browser =  Watir::Browser.new :firefox
-end
+require_relative("../support/lib/shared_objs")
 
 
-def goto_child_keeper
-  @browser.goto 'http://www.childskeeper.com'
-end
-
-def goto_link(link)
-  @browser.link(:text => link).click
-end
-
-def validate_page_by_title(title)
-  @browser.title.should include title
-end
-
-def set_text_field_by_id(id, value)
-  @browser.text_field(:id => id).set(value)
-end
-
-def set_select_value_by_id(id, value)
-  @browser.select(:id => id).select_value(value)
-end
 
 
 Given(/^I am on the child keeper site$/) do
