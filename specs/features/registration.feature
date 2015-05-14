@@ -1,18 +1,20 @@
-Feature: User Registration
-  As a curious user
+Feature: Registering for child keeper
+  As an interested user
   I want to sign up to childs keeper
   So I can explore it's awesomeness!
 
-  Scenario Outline: Visiting the
-    Given I am on the child keeper site
-    When I click the Join Today Link
-    And I register a new account as a "<gender>" owner between the ages of "<range>"
-    Then I should see registration form
+  Scenario Outline: Registering for child keeper with the join today link
+    Given That I am on the child keeper registration site
+    When I register a new account with a user name of "<user name>" and a name of "<name>" and a password of "<password>" and a confirmed password of "<confirmed password>"
+    And An email address of "<email>" with a gender of "<gender>" and pick that I am between the ages of "<range>""
+    And select "<is owner of center>" for "Are you an owner of a center? prompt"
+    And I agree to the terms and conditions
+    And I click on the Register button
+    Then the registration should "<succeed status>"
 
-  Examples:
-     |gender|range|
-     |Male|20-29|
-     |Female|20-29|
-     |Male|30-39|
-     |Female|30-39|
-
+    Examples:
+      |gender|range|user name|name         |email                  |password|confirmed password|is owner of center|succeed status|
+      |Male  |20-29|jooxman  |Henry Mbadiwe|henry.mbadiwe@gmail.com|password|password          |Yes               |true          |
+      #|Female|20-29|jooxwoman
+      #|Male|30-39|joox_sr|
+      #|Female|30-39|lady_joox|

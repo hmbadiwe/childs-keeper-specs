@@ -1,16 +1,36 @@
 require 'rubygems'
 require 'watir-webdriver'
+require_relative 'TestData'
+
+
+include TestData
 
 def goto_link(link)
   $browser.link(:text => link).click
+end
+def goto_button(button_name)
+  $browser.button(:value => button_name ).click
 end
 
 def goto_child_keeper
   $browser.goto 'http://www.childskeeper.com'
 end
 
+def goto_registration
+  $browser.goto REGISTRATION_URL
+end
+
+def goto_login
+  $browser.goto LOGIN_URL
+end
+
 def validate_page_by_title(title)
   $browser.title.should include title
+end
+
+def validate_page_by_url(url)
+  puts "Browser url = #{$browser.url}, url = #{url}"
+  $browser.url.should include url
 end
 
 def set_text_field_by_id(id, value)
