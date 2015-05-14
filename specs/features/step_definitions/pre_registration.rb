@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'watir-webdriver'
-require_relative("../support/lib/shared_objs")
 require_relative("../support/lib/TestData")
 
 
